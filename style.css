@@ -64,3 +64,26 @@ textarea {
   textarea { height: 150px; font-size: 14px; }
   #copyBtn { width: 100%; }
 }
+.morphResult {
+  margin-top: 20px;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.morphResult h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: var(--color-primary);
+}
+.morphResult ul {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.morphResult li {
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: var(--color-text);
+}
