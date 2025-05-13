@@ -14,7 +14,7 @@ function updateCounts() {
   wordCount.textContent = text.trim() ? words.length : 0;
 }
 
-// 외부 API를 이용한 형태소 분석
+// AllOrigins 프록시를 통한 형태소 분석
 async function analyzeMorph() {
   const text = inputText.value.trim();
   if (!text) {
@@ -22,13 +22,15 @@ async function analyzeMorph() {
     return;
   }
 
+  // 원 API URL
+  const apiUrl   = `https://open-korean-text.herokuapp.com/tokenize?text=${encodeURIComponent(text)}`;
+  // CORS 프록시 경유
+  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
+
   try {
-    // 공개 형태소 분석 REST API 호출
-    const res  = await fetch(
-      `https://open-korean-text.herokuapp.com/tokenize?text=${encodeURIComponent(text)}`
-    );
-    const data = await res.json();
-    const tokens = data.tokens || data;
+    const res  = await fetch(proxyUrl);
+    const data = await res.json();           // AllOrigins가 원본 JSON을 그대로 반환
+    const tokens = data.tokens || data;      // { tokens: [...] } 또는 [...] 형태 대응
     morphList.innerHTML = tokens
       .map(tok => `<li>${tok.text} <small>(${tok.pos})</small></li>`)
       .join('');
@@ -38,7 +40,7 @@ async function analyzeMorph() {
   }
 }
 
-// 입력할 때마다 실행
+// 입력할 때마다 두 함수 실행
 inputText.addEventListener('input', () => {
   updateCounts();
   analyzeMorph();
@@ -46,7 +48,4 @@ inputText.addEventListener('input', () => {
 
 // 복사 버튼 기능
 copyBtn.addEventListener('click', () => {
-  navigator.clipboard.writeText(inputText.value)
-    .then(() => alert('텍스트가 복사되었습니다!'))
-    .catch(err => console.error('복사 실패:', err));
-});
+  navigator.clipboard.writeText(inputText
