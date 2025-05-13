@@ -1,37 +1,14 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <!-- Pretendard 웹폰트 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <!-- Noto Sans KR (본고딕) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>글자 수 세기</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>글자 수 세기</h1>
-    <textarea id="inputText" placeholder="여기에 텍스트를 입력하세요"></textarea>
-    <div class="results">
-      <p>문자 수 (공백 포함): <span id="countInclude">0</span></p>
-      <p>문자 수 (공백 제외): <span id="countExclude">0</span></p>
-      <p>단어 수: <span id="wordCount">0</span></p>
-    </div>
-    <button id="copyBtn">내용 복사</button>
-
-    <!-- 형태소 분석 결과 -->
-    <div class="morphResult">
-      <h2>형태소 분석 결과</h2>
-      <ul id="morphList"></ul>
-    </div>
+  …  
+  <!-- 형태소 분석 결과 -->
+  <div class="morphResult">
+    <h2>형태소 분석 결과</h2>
+    <ul id="morphList"></ul>
   </div>
+</div>
 
-  <!-- 내 로직만 로드 -->
-  <script src="script.js"></script>
+<!-- 1) 공식 UMD 빌드 로드: 반드시 defer 속성 추가 -->
+<script defer src="https://cdn.jsdelivr.net/npm/open-korean-text@4.0.1/dist/open-korean-text.umd.min.js"></script>
+<!-- 2) 내 로직 -->
+<script src="script.js"></script>
 </body>
 </html>
