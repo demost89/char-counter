@@ -24,18 +24,14 @@
     </div>
     <button id="copyBtn">내용 복사</button>
 
+    <!-- 형태소 분석 결과 -->
     <div class="morphResult">
       <h2>형태소 분석 결과</h2>
       <ul id="morphList"></ul>
     </div>
   </div>
 
-  <!-- 1) ESM 방식으로 형태소 라이브러리 로드 -->
-  <script type="module">
-    import OpenKoreanTextProcessor from 'https://esm.sh/open-korean-text@4.0.1';
-    window.OpenKoreanTextProcessor = OpenKoreanTextProcessor;
-  </script>
-  <!-- 2) 기존 스크립트 -->
+  <!-- 내 로직만 로드 -->
   <script src="script.js"></script>
 </body>
 </html>
