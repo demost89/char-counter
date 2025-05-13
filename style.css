@@ -1,38 +1,107 @@
-/* ===== CSS 변수 선언 ===== */
 :root {
   --color-bg: #d5d5d5;
-  --color-card: #ffffff;
+  --color-card: #fff;
   --color-primary: #6c63ff;
-  --color-text: #333333;
+  --color-text: #333;
 }
 
-/* ===== 글로벌 스타일 ===== */
+/* 전체 배경 & 글꼴 */
 body {
   margin: 0;
   padding: 20px;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background: var(--color-bg);
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  color: var(--color-text);
 }
 
-/* ===== 컨테이너 ===== */
-/* ===== 컨테이너 (전체 박스) ===== */
+/* 컨테이너 */
 .container {
-  max-width: 800px;    /* 기존 600px에서 800px로 확대 */
-  margin: 20px auto;
+  max-width: 800px;
+  margin: auto;
   background: var(--color-card);
   border: 2px solid var(--color-primary);
-  padding: 30px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-
-/* ===== 제목 ===== */
-h1 {
-  margin-top: 0;
-  margin-bottom: 20px;       /* 타이틀 아래 여백 추가 */
+/* 메뉴 탭 */
+.menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+.menu .tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+.menu .tab.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
 }
 
-/* ===== 텍스트 상자 ===== */
+/* 탭 콘텐츠 */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* 헤딩 */
+h1 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* 입력 상자 */
 textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  resize: vertical;
+}
+
+/* 결과 텍스트 */
+.results {
+  margin-bottom: 15px;
+}
+.results p {
+  margin: 5px 0;
+}
+
+/* 복사 버튼 */
+#copyBtn {
+  padding: 10px 20px;
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#copyBtn:hover {
+  background: #574b90;
+}
+
+/* 형태소 결과 리스트 */
+.morph-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.morph-results li {
+  margin-bottom: 6px;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  .container { padding: 15px; }
+  textarea { height: 120px; }
+}
