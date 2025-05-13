@@ -1,21 +1,21 @@
-/* 1) 최상단: CSS 변수 선언 */
+/* ===== CSS 변수 선언 ===== */
 :root {
-  --color-bg: #d5d5d5;      /* 요청하신 배경색 */
+  --color-bg: #d5d5d5;
   --color-card: #ffffff;
   --color-primary: #6c63ff;
   --color-text: #333333;
 }
 
-/* 2) 글로벌 스타일 */
+/* ===== 글로벌 스타일 ===== */
 body {
   margin: 0;
   padding: 20px;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Pretendard', 'Noto Sans KR', sans-serif; /* 한글 폰트 우선순위 */
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
 }
 
-/* 3) 컨테이너 카드 */
+/* ===== 컨테이너 ===== */
 .container {
   max-width: 600px;
   margin: auto;
@@ -26,7 +26,7 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* 4) 텍스트 상자 */
+/* ===== 텍스트 상자 ===== */
 textarea {
   width: 100%;
   height: 200px;
@@ -37,7 +37,7 @@ textarea {
   resize: vertical;
 }
 
-/* 5) 복사 버튼 */
+/* ===== 복사 버튼 ===== */
 #copyBtn {
   display: block;
   margin: 15px 0 0;
@@ -53,12 +53,12 @@ textarea {
   background: #574b90;
 }
 
-/* 6) 결과 텍스트 */
+/* ===== 결과 텍스트 ===== */
 .results p {
   margin: 5px 0;
 }
 
-/* 7) 반응형 */
+/* ===== 반응형 ===== */
 @media (max-width: 600px) {
   .container { padding: 15px; }
   textarea { height: 150px; font-size: 14px; }
