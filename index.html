@@ -24,15 +24,16 @@
     </div>
     <button id="copyBtn">내용 복사</button>
 
-    <!-- 형태소 분석 결과 영역: 스크립트 로드 전에 위치해야 합니다 -->
+    <!-- 형태소 분석 결과 영역 -->
     <div class="morphResult">
       <h2>형태소 분석 결과</h2>
       <ul id="morphList"></ul>
     </div>
   </div>
 
-  <!-- 스크립트는 모두 HTML 요소 뒤에! -->
+  <!-- 1) 형태소 분석 라이브러리: defer 속성 추가 -->
   <script defer src="https://unpkg.com/open-korean-text@4.0.1/dist/open-korean-text.js"></script>
+  <!-- 2) 내 로직 -->
   <script src="script.js"></script>
 </body>
 </html>
