@@ -3,7 +3,7 @@
 <head>
   <!-- Pretendard 웹폰트 로드 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <!-- Noto Sans KR (본고딕) -->
+  <!-- Noto Sans KR (본고딕) 로드 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
@@ -13,8 +13,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 한국어 형태소 분석 라이브러리 OpenKoreanTextProcessor.js -->
-<script src="https://cdn.jsdelivr.net/npm/open-korean-text@4.0.1/openkoreantext.min.js"></script>
   <div class="container">
     <h1>글자 수 세기</h1>
     <textarea id="inputText" placeholder="여기에 텍스트를 입력하세요"></textarea>
@@ -24,11 +22,10 @@
       <p>단어 수: <span id="wordCount">0</span></p>
     </div>
     <button id="copyBtn">내용 복사</button>
-    <div class="morphResult">
-  <h2>형태소 분석 결과</h2>
-  <ul id="morphList"></ul>
-</div>
   </div>
+
+  <!-- 형태소 분석 라이브러리 로드 (OpenKoreanTextProcessor) -->
+  <script src="https://cdn.jsdelivr.net/npm/open-korean-text@4.0.1/openkoreantext.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
