@@ -5,7 +5,7 @@ const wordCount = document.getElementById('wordCount');
 const copyBtn = document.getElementById('copyBtn');
 const morphList = document.getElementById('morphList');
 
-// 글자 수, 단어 수 계산 함수
+/** 글자 수 & 단어 수 계산 */
 function updateCounts() {
   const text = inputText.value;
   countInclude.textContent = text.length;
@@ -14,22 +14,32 @@ function updateCounts() {
   wordCount.textContent = text.trim() ? words.length : 0;
 }
 
-// 형태소 분석 함수
+/** 외부 API를 이용한 형태소 분석 */
 async function analyzeMorph() {
-  const text = inputText.value;
-  if (!text.trim()) {
+  const text = inputText.value.trim();
+  if (!text) {
     morphList.innerHTML = '';
     return;
   }
-  const tokens = await OpenKoreanTextProcessor.tokenize(text);
-  const normalized = await OpenKoreanTextProcessor.normalize(tokens);
-  const parsed = await OpenKoreanTextProcessor.parse(normalized);
-  morphList.innerHTML = parsed.map(item =>
-    `<li>${item.text} <small>(${item.pos})</small></li>`
-  ).join('');
+
+  try {
+    // Heroku에 호스트된 REST API 호출(tokenize)
+    const res = await fetch(
+      `https://open-korean-text.herokuapp.com/tokenize?text=${encodeURIComponent(text)}`
+    );
+    const data = await res.json();
+    // API가 { tokens: [ ... ] } 혹은 [ ... ] 형태로 응답합니다
+    const tokens = data.tokens || data;
+    morphList.innerHTML = tokens
+      .map(tok => `<li>${tok.text} <small>(${tok.pos})</small></li>`)
+      .join('');
+  } catch (err) {
+    console.error('형태소 분석 API 오류:', err);
+    morphList.innerHTML = '<li>분석 오류 발생</li>';
+  }
 }
 
-// 이벤트 연결
+// 입력 이벤트에 두 함수를 모두 연결
 inputText.addEventListener('input', () => {
   updateCounts();
   analyzeMorph();
