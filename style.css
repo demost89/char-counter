@@ -62,12 +62,13 @@ textarea {
   width: 100%;             /* 컨테이너 안쪽 공간을 꽉 채우되 */
   max-width: 100%;         /* 절대 넘치지 않도록 제한 */
   /* height, padding 등 나머지 스타일은 그대로 */
-    font-size: 15px;
+height: 220px;        /* textarea 높이를 넉넉히 */
+  padding: 12px;
+  font-size: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
   resize: vertical;
   margin-bottom: 16px;
-
 }
 
 
