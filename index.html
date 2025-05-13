@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>글자 수 세기</title>
@@ -22,14 +23,16 @@
       <p>단어 수: <span id="wordCount">0</span></p>
     </div>
     <button id="copyBtn">내용 복사</button>
+
+    <!-- 형태소 분석 결과 영역: 스크립트 로드 전에 위치해야 합니다 -->
+    <div class="morphResult">
+      <h2>형태소 분석 결과</h2>
+      <ul id="morphList"></ul>
+    </div>
   </div>
 
-  <!-- 형태소 분석 라이브러리 로드 (OpenKoreanTextProcessor) -->
+  <!-- 스크립트는 모두 HTML 요소 뒤에! -->
   <script src="https://cdn.jsdelivr.net/npm/open-korean-text@4.0.1/openkoreantext.min.js"></script>
   <script src="script.js"></script>
-  <div class="morphResult">
-  <h2>형태소 분석 결과</h2>
-  <ul id="morphList"></ul>
-</div>
 </body>
 </html>
