@@ -1,3 +1,5 @@
+// script.js — 이 안의 모든 내용을 지우고, 아래 코드만 붙여넣으세요
+
 const inputText     = document.getElementById('inputText');
 const countInclude  = document.getElementById('countInclude');
 const countExclude  = document.getElementById('countExclude');
@@ -22,30 +24,5 @@ async function analyzeMorph() {
     return;
   }
 
-  // 원 API URL
   const apiUrl   = `https://open-korean-text.herokuapp.com/tokenize?text=${encodeURIComponent(text)}`;
-  // CORS 프록시 경유
-  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
-
-  try {
-    const res  = await fetch(proxyUrl);
-    const data = await res.json();           // AllOrigins가 원본 JSON을 그대로 반환
-    const tokens = data.tokens || data;      // { tokens: [...] } 또는 [...] 형태 대응
-    morphList.innerHTML = tokens
-      .map(tok => `<li>${tok.text} <small>(${tok.pos})</small></li>`)
-      .join('');
-  } catch (err) {
-    console.error('형태소 분석 API 오류:', err);
-    morphList.innerHTML = '<li>분석 오류 발생</li>';
-  }
-}
-
-// 입력할 때마다 두 함수 실행
-inputText.addEventListener('input', () => {
-  updateCounts();
-  analyzeMorph();
-});
-
-// 복사 버튼 기능
-copyBtn.addEventListener('click', () => {
-  navigator.clipboard.writeText(inputText
+  const proxyUrl
