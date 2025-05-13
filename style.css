@@ -58,12 +58,7 @@ textarea {
   margin: 5px 0;
 }
 
-/* ===== 반응형 ===== */
-@media (max-width: 600px) {
-  .container { padding: 15px; }
-  textarea { height: 150px; font-size: 14px; }
-  #copyBtn { width: 100%; }
-}
+/* ===== 형태소 분석 결과 ===== */
 .morphResult {
   margin-top: 20px;
   padding: 10px;
@@ -86,4 +81,11 @@ textarea {
   margin-bottom: 4px;
   font-size: 14px;
   color: var(--color-text);
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 600px) {
+  .container { padding: 15px; }
+  textarea { height: 150px; font-size: 14px; }
+  #copyBtn { width: 100%; }
 }
