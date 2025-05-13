@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- Pretendard 웹폰트 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <!-- Noto Sans KR (본고딕) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>글자 수 세기</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>글자 수 세기 &amp; 형태소 분석</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>글자 수 세기</h1>
-    <textarea id="inputText" placeholder="여기에 텍스트를 입력하세요"></textarea>
-    <div class="results">
-      <p>문자 수 (공백 포함): <span id="countInclude">0</span></p>
-      <p>문자 수 (공백 제외): <span id="countExclude">0</span></p>
-      <p>단어 수: <span id="wordCount">0</span></p>
-    </div>
-    <button id="copyBtn">내용 복사</button>
+    <!-- 1) 상단 메뉴 탭 -->
+    <ul class="menu">
+      <li class="tab active" data-target="charTab">글자 수</li>
+      <li class="tab"        data-target="morphTab">형태소 분석</li>
+    </ul>
 
-    <div class="morphResult">
-      <h2>형태소 분석 결과</h2>
-      <ul id="morphList"></ul>
+    <!-- 2) 글자 수 기능 영역 -->
+    <div id="charTab" class="tab-content active">
+      <h1>글자 수 세기</h1>
+      <textarea id="inputText" placeholder="여기에 텍스트를 입력하세요"></textarea>
+      <div class="results">
+        <p>문자 수 (공백 포함): <span id="countInclude">0</span></p>
+        <p>문자 수 (공백 제외): <span id="countExclude">0</span></p>
+        <p>단어 수: <span id="wordCount">0</span></p>
+      </div>
+      <button id="copyBtn">내용 복사</button>
+    </div>
+
+    <!-- 3) 형태소 분석 기능 영역 -->
+    <div id="morphTab" class="tab-content">
+      <h1>형태소 분석</h1>
+      <p>아래에 입력한 텍스트의 형태소를 분석합니다.</p>
+      <textarea id="morphInput" placeholder="여기에 텍스트를 입력하세요"></textarea>
+      <div class="results morph-results">
+        <ul id="morphList">
+          <li>분석 준비 중…</li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <!-- 스크립트는 한 줄만! -->
   <script src="script.js"></script>
 </body>
 </html>
