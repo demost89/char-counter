@@ -1,21 +1,66 @@
+/* 1) 최상단: CSS 변수 선언 */
+:root {
+  --color-bg: #d5d5d5;      /* 요청하신 배경색 */
+  --color-card: #ffffff;
+  --color-primary: #6c63ff;
+  --color-text: #333333;
+}
+
+/* 2) 글로벌 스타일 */
 body {
-  background: #f0f0f0;
-  font-family: sans-serif;
   margin: 0;
   padding: 20px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif; /* 한글 폰트 우선순위 */
 }
+
+/* 3) 컨테이너 카드 */
 .container {
   max-width: 600px;
-  margin: 0 auto;
-  background: #fff;
+  margin: auto;
+  background: var(--color-card);
+  border: 2px solid var(--color-primary);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
+/* 4) 텍스트 상자 */
 textarea {
   width: 100%;
   height: 200px;
   padding: 10px;
   font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }
-.results p { margin: 5px 0; }
+
+/* 5) 복사 버튼 */
+#copyBtn {
+  display: block;
+  margin: 15px 0 0;
+  padding: 8px 16px;
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#copyBtn:hover {
+  background: #574b90;
+}
+
+/* 6) 결과 텍스트 */
+.results p {
+  margin: 5px 0;
+}
+
+/* 7) 반응형 */
+@media (max-width: 600px) {
+  .container { padding: 15px; }
+  textarea { height: 150px; font-size: 14px; }
+  #copyBtn { width: 100%; }
+}
